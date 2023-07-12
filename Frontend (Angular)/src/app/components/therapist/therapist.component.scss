@@ -1,0 +1,169 @@
+.therapist-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.therapist-container h2{
+    margin-top: 5%;
+}
+
+.devider-line{
+    width: 70%;
+    margin-bottom: 2%;
+}
+
+.tabs{
+    width: 70%;
+}
+
+.patient-section{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 50px;
+    //padding-top: 5%;
+}
+
+.patient-list{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.patient-list-item{
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20x;
+}
+
+.patient-name{
+    font-size: larger;
+    font-weight: 400;
+    padding-top: 10px;
+}
+
+.image-container{
+    border-radius: 50%;
+    background-color: #c6cad6;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.patient-picture{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.patient-info{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.patient-detail{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.patient-note-input{
+    height: 100%;
+    width: 40%;
+}
+
+.schedule-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    //height: 700px;
+}
+
+.upcoming{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    flex-grow: 1;
+    width: 40%;
+}
+
+.calendar-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.calendar-card{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 25px;
+    height: 100%;
+}
+
+.calendar{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 40%;
+    max-width: 40%;
+    //width: 40%;
+    // width: 50%;
+    // height: 400px;
+}
+
+.schedule-card-div{
+    width: 30%;
+    //height: 80%;
+    margin-right: 6%;
+    margin-left: 3%;
+    margin-top: 3%;
+    padding-bottom: 2%;
+}
+
+.footer1{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.footer2{
+    position: relative;
+}
+
+@media screen and (max-width: 900px) {
+    .calendar-card{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        height: 100%;
+    }
+    .calendar{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1 0 100%;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}

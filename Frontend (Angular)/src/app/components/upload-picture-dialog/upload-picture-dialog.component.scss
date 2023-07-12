@@ -1,0 +1,27 @@
+.dialog-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.drag-drop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: gray;
+    background-color: #f1f1f1;
+    width: 80%;
+    height: 100%;
+}
+
+.highlight{
+    border-color: #446ccf;
+    background-color: #c6cad6;
+}
+
+.upload-error{
+    color: rgba(255, 17, 0, 0.623);
+}

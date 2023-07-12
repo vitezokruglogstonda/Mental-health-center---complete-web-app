@@ -1,0 +1,20 @@
+<mat-card class="schedule-card">
+    <div class="header">
+        <h3>{{headerText()}}</h3>
+    </div>
+    <mat-divider class="devider-line"></mat-divider>
+    <div class="schedule-list">
+        <div *ngFor="let appointment of appointmentsLabel; let i = index" class="appointment-list">
+            <p>{{appointment}}</p>
+            <!-- <div *ngIf="!appointments[i]" class="empty-div">&nbsp;</div> -->
+            <div *ngIf="appointments[i]" class="appointment">
+                <div class="image-container">
+                    <img class="patient-picture" src={{appointmentPatient_array[i]!.profilePicturePath}} />
+                </div>
+                <div>
+                    <p>{{appointmentPatient_array[i]!.firstName}} {{appointmentPatient_array[i]!.lastName}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>

@@ -1,0 +1,47 @@
+<div class="patient-container">
+    <h2>{{pageTitle}}</h2>
+    <mat-divider class="devider-line"></mat-divider>
+
+    <mat-accordion *ngIf="showTherapistList" class="therapist-section" multi="true">
+        <div *ngFor="let therapist of therapistList; let i = index" class="therapist-list">
+            <mat-expansion-panel *ngIf="therapist" class="therapist-list-item" (opened)="expandItem()"
+                (closed)="shrinkItem()">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div class="image-container">
+                            <img class="therapist-picture" src={{therapist.profilePicturePath}} />
+                        </div>
+                        <p class="therapist-name">{{therapist.firstName}} {{therapist.lastName}}</p>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="therapist-info-div">
+                    <div class="therapist-info">
+                        <div class="therapist-big-picture">
+                            <img src={{therapist.profilePicturePath}} />
+                        </div>
+                        <div class="therapist-detail">
+                            <p>E-mail: {{therapist.email}}</p>
+                            <p>Phone number: {{therapist.phoneNumber}}</p>
+                            <p>Gender: {{therapist.gender}}</p>
+                        </div>
+                        <div class="therapist-description">
+                            <p>{{therapist.description}}</p>
+                        </div>
+                    </div>
+                    <button mat-raised-button class="choose-button" color="primary"
+                        (click)="chooseTherapist(therapist.id)">Choose this therapist</button>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </mat-accordion>
+    <div *ngIf="showSchedule" class="schedule-section">
+        <mat-card class="calendar-card">
+            <mat-calendar class="calendar" [(selected)]="selectedDate" [dateFilter]="filterCalendar"
+                [minDate]="upcomingScheduleDate"></mat-calendar> 
+            <!-- <mat-calendar class="calendar" [(selected)]="selectedDate"></mat-calendar> -->
+            <mat-divider [vertical]="true"></mat-divider>
+            <app-patient-schedule-card [date]="selectedDate" class="schedule-card-div"></app-patient-schedule-card>
+        </mat-card>
+    </div>
+</div>
+<app-footer-component class="footer1"></app-footer-component>

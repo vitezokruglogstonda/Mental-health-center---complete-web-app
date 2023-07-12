@@ -1,0 +1,99 @@
+.schedule-card{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.mat-card>.mat-divider-horizontal{
+    position: relative;
+}
+
+.devider-line{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header > h3 {
+    font-weight: 500;
+}
+
+.schedule-list{
+    display: flex;
+    flex-direction: column;
+    //height: 80%;
+    width: 80%;
+    min-width: 215px;
+}
+
+.appointment-list{
+    display: flex;
+    align-items: center;
+    //justify-content: space-around;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 90%;
+    //height: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.appointment-list > p{
+    opacity: 0.7;
+    margin-top: 5%;
+    margin-right: 20%;
+}
+
+.empty-div{
+    width: 70%;
+}
+
+.appointment{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    right: 5%;
+}
+
+.appointment p{
+    margin-top: 15%;
+}
+
+.image-container{
+    border-radius: 50%;
+    background-color: #c6cad6;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.patient-picture{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.occupied{
+    color: red;
+    opacity: 60%;
+    font-size: small;
+}
+
+// .free{
+//     color: gray;
+//     opacity: 100%;    
+//     font-size: small;
+// }
+
+.scheduledButton{
+    background-color: green;
+}

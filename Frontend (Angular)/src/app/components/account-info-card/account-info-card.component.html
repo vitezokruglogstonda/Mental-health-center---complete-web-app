@@ -1,0 +1,13 @@
+<mat-card class="card-container">
+    <div class="header">
+        <div class="image">
+            <img src={{accountImagePath}}/>
+        </div>
+        <h4>{{userName}}</h4>
+    </div>
+    <mat-divider class="devider-line"></mat-divider>
+    <br/>
+    <div class="button-container">
+        <button mat-raised-button class="submit-button" id="sign-out-button" color="primary" (click)="signOut()">Sign out</button>
+    </div>
+</mat-card>

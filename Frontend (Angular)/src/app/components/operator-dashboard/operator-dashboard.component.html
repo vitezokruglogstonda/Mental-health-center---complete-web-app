@@ -1,0 +1,21 @@
+<div class="dashboard-container">
+    <h2>List of requests for a help call</h2>
+    <mat-divider class="devider-line"></mat-divider>
+
+    <mat-accordion class="request-list">
+        <div *ngFor="let request of helpCalls; let i = index">
+            <mat-expansion-panel class="request-item" @item-fade-out *ngIf="listItems[i]">
+                <mat-expansion-panel-header>
+                    <mat-panel-title *ngIf="request"><p class="request-title">{{request.guestName}}</p></mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="request-content" *ngIf="request">
+                    <p class="request-phone-label">Phone number: <strong>{{request.guestPhoneNumber}}</strong></p>
+                    <button mat-icon-button class="request-done-button" color="primary" value={{request.id}} (click)="callDone($event)">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </mat-accordion>
+</div>
+<app-footer-component class="footer1"></app-footer-component>

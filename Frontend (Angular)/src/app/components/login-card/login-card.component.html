@@ -1,0 +1,33 @@
+<mat-card class="card-container">
+    <mat-card-title class="login-title" >Log In</mat-card-title>
+    <mat-divider class="devider-line"></mat-divider>
+    <br/>
+    <div class="login-form-container">
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput [(ngModel)]="email" (input)="checkEmail()" placeholder={{emailExample}} required>
+            <!-- <input matInput [formControl]="emailControl" (input)="checkEmail()" placeholder={{emailExample}} required> -->
+            <mat-error *ngIf="emailError">{{fieldError}}</mat-error>
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [(ngModel)]="password" (input)="checkPassword()" [type]="passwordHide ? 'password' : 'text'" required>
+            <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+              <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="passwordError">{{fieldError}}</mat-error>
+        </mat-form-field>
+        <br/>
+        <div *ngIf="loginError">
+            <p id="loginErrorLabel">Wrong email or password. Try again.</p>
+        </div>
+        <button mat-raised-button class="submit-button" id="login-button" color="primary" (click)="logIn()">Log in</button>
+    </div>
+    <br/>
+    <mat-divider></mat-divider>
+    <div class="register-div">
+        <h3>Don't have an account?</h3>
+        <button mat-raised-button class="submit-button" id="register-button" color="primary" routerLink="/register">Register</button>
+    </div>
+</mat-card>

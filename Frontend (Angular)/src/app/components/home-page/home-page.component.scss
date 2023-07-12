@@ -1,0 +1,251 @@
+.home-page-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow:overlay;    
+    scroll-snap-type: y proximity; //mandatory
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+app-footer-component{
+    width: 100%;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 40%;
+    padding-top: 21%;
+    padding-bottom: 25%;
+
+    scroll-snap-align: start;
+}
+
+.video-container video {
+    // object-fit: cover;
+    // width: 100%;
+    // height: 100%;
+
+    min-width: 100%;
+    width: 120%;
+    position: fixed;
+    top: -17%;
+    z-index: -999;
+    opacity: 0.8;
+}
+
+.video-container-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    line-height: 100%;
+    text-transform: uppercase;
+    transform: skewX(-20deg);
+    opacity: 0.85;
+    transform-origin: 0% 30%;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.video-container-title p {
+    display: inline-block;
+    /* transform: scale(1, 1.5); */
+    /* -webkit-transform: scale(4.45, 2.5); */
+    // -moz-transform: scale(1, 3);
+    // -o-transform: scale(1, 3);
+    transform-origin: 0% 30%;
+}
+
+.video-container-scroll-down-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    bottom: 20px;
+
+    width: 10%;
+    height: 10%;
+}
+
+.video-container-scroll-down-arrow:hover{
+    cursor: pointer;
+}
+
+.video-container-scroll-down-arrow p{
+    text-align: center;
+    color: #c6cad6;
+    font-size: 10px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.video-container-scroll-down-arrow svg{
+    width: 15%;
+    height: 15%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    overflow-y: scroll;
+    //background: grey;
+    background: transparent;
+    //box-shadow: inset 0 0 4px #707070;
+}
+
+::-webkit-scrollbar-thumb {
+    //background: #446ccf;
+    background: grey;
+    border-radius: 60px;
+    opacity: 1;
+}
+
+.home-page-content {
+    display: flex;
+    background-color: #c6cad6;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    margin-bottom: 100px;
+    scroll-snap-align: start;
+}
+
+.intro *{
+    font-family: "Times New Roman", Times, serif;
+}
+
+.intro h1{
+    font-size: 350%;
+    color: #446ccf;
+}
+
+.intro h3{
+    font-size: 150%;
+    color: gray;
+    font-style: italic;
+}
+
+.divider-line{
+    width: 80%;
+}
+
+.experience{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.experience-section{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    // padding-top: 20px;
+    // padding-bottom: 20px;
+    // padding-left: 40px;
+    // padding-right: 40px;
+    // background-color: rgb(189, 185, 185);
+    // border-radius: 10px;
+    // box-shadow: 0px 0px 3px black;
+}
+
+// .experience-text{
+    
+// }
+
+.apostrophe-image{
+    opacity: 0.3;
+    fill: #446ccf;
+    position: relative;
+    top:0;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+}
+
+.experience-text p{
+    text-align: justify;
+    position: relative;
+    top: -20px;
+    left: 0;
+    margin-bottom: -20px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+.experience-user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.experience-user img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.user-name{
+    padding-top: 15px;
+    color: gray;
+    font-family: "Helvetica", Sans-serif;
+    font-size: 20px;
+}
+
+.seek-help-card{
+    width: 20%;
+    margin-top: 40px;
+}
+
+.scroll-to-top-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #446ccf;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    opacity: 0.7;
+}
+
+.fontawesomesvg{
+    width: 60%;
+    height: 60%;
+    fill: #c6cad6;
+}
+
+.scroll-to-top-button:hover{
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px black;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+}

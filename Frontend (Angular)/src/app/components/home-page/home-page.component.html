@@ -1,0 +1,77 @@
+<div class="home-page-container" (scroll)="onScroll($event)">
+    <div class="video-container" [class.mat-elevation-z8]="true">
+        <video autoplay muted loop oncanplay="this.play()" onloadedmetadata="this.muted = true">
+            <source src="{{videoPath}}" type="video/mp4">
+        </video>
+        <div class="video-container-title" @title-fade-in>
+            <p>{{videoTitle}}</p>
+        </div>
+        <div [@scroll-down-arrow]="this.scroll_TopOfPage ? 'shown-arrow' : 'hidden-arrow'"
+            class="video-container-scroll-down-arrow" (click)="scrollArrowClick()">
+            <p>Scroll down</p>
+            <svg class='fontawesomesvg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="home-page-content">
+        <div class="intro">
+            <h1>{{introMainText}}</h1>
+            <h3>{{introSubtext}}</h3>
+        </div>
+        <mat-divider class="divider-line"></mat-divider>
+        <div class="experience">
+            <div *ngIf="quotes.length != 0" id="user-1" class="experience-section"
+                [@experience-left]="xpAppear ? 'shown-left' : 'hidden-left'">
+                <div class="experience-text">
+                    <svg class="apostrophe-image">
+                        <path
+                            d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
+                            data-v-2fd759f4=""></path>
+                    </svg>
+                    <p>{{quotes[0].quoteText}}</p>
+                </div>
+                <div class="experience-user">
+                    <img src={{quotes[0].profilePicture}} />
+                    <p class="user-name">{{quotes[0].userName}}</p>
+                </div>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div *ngIf="quotes.length != 0" id="user-2" class="experience-section"
+                [@experience-right]="xpAppear ? 'shown-right' : 'hidden-right'">
+                <div class="experience-text">
+                    <svg class="apostrophe-image">
+                        <path
+                            d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
+                            data-v-2fd759f4=""></path>
+                    </svg>
+                    <p>{{quotes[1].quoteText}}</p>
+                </div>
+                <div class="experience-user">
+                    <img src={{quotes[1].profilePicture}} />
+                    <p class="user-name">{{quotes[1].userName}}</p>
+                </div>
+            </div>
+        </div>
+        <mat-divider class="divider-line"></mat-divider>
+
+        <!-- <app-seek-help class="seek-help-card" (emmiter)="submited()" [@seek-help-enter]="helpCardAppear ? 'shown-card' : 'hidden-card'"  [@seek-help-enter]="helpCardDissappear ? 'card-dissapear' : 'shown-card'"></app-seek-help> -->
+        <app-seek-help *ngIf="!helpRequested" class="seek-help-card" (emmiter)="submited()"
+            [@seek-help-enter]="triggerCardAnimation()"></app-seek-help>
+
+
+        <app-footer-component></app-footer-component>
+    </div>
+
+</div>
+
+<!-- <div [@scroll-to-top-button-animation]="scroll_TopOfPage ? 'hidden-button' : 'shown-button'" class="scroll-to-top-button" (click)="scrollToTop()"> -->
+<div [@scroll-to-top-button-animation]="triggerScrollToTopButtonAnimation()" class="scroll-to-top-button"
+    (click)="scrollToTop()" mat-ripple [matRippleCentered]=true [matRippleUnbounded]=true>
+    <svg class='fontawesomesvg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path
+            d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+    </svg>
+</div>

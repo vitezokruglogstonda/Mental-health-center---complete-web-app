@@ -1,0 +1,215 @@
+<div class="admin-container">
+    <h2>{{pageTitle}}</h2>
+    <mat-divider class="devider-line"></mat-divider>
+
+    <mat-tab-group mat-align-tabs="center" class="tabs" [selectedIndex]="selectedTab.value"
+        (selectedIndexChange)="tabChange($event)">
+        <mat-tab label="Users">
+            <mat-accordion class="user-section">
+                <div class="filter-options">
+                    <mat-form-field appearance="fill" class="filter-select">
+                        <mat-label>User type</mat-label>
+                        <mat-select [(value)]="selectedUserType" (selectionChange)="typeChange()">
+                            <mat-option *ngFor="let type of userTypes" [value]="type">
+                                {{type}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="filter-form-field" appearance="fill">
+                        <mat-label>Search</mat-label>
+                        <input matInput [(ngModel)]="userSearchString" (input)="findUser()">
+                        <!-- <mat-error *ngIf="emailError">{{fieldError}}</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div *ngFor="let user of userList; let i = index" class="user-list">
+                    <mat-expansion-panel *ngIf="user && listItems[i]"
+                        class="user-list-item {{getUserType(user.userType)}}-item" @item-fade-out>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <div class="image-container">
+                                    <img class="user-picture" src={{user.profilePicturePath}} />
+                                </div>
+                                <p class="user-name">{{user.firstName}} {{user.lastName}}</p>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="user-info">
+                            <div class="user-detail">
+                                <p>User type: {{getUserType(user.userType)}}</p>
+                                <p>Email: {{user.email}}</p>
+                                <p>Age: {{calculateAge(user.birthDate)}}</p>
+                                <p>Phone number: {{user.phoneNumber}}</p>
+                                <p>Gender: {{user.gender}}</p>
+                                <p *ngIf="user.numberOfPatients">Number of patients: {{user.numberOfPatients}}</p>
+                                <p *ngIf="!user.numberOfPatients && user.userType == 1">Currently no patients</p>
+                                <button mat-raised-button class="password-button {{getUserType(user.userType)}}-button" color="primary" value={{user.id}}
+                                    (click)="openChangePasswordDialog(user.id)"> Change password
+                                </button>
+                                <!-- <p (click)="openChangePasswordDialog(user.id)">Password: {{user.password}}</p> -->
+                            </div>
+                            <div *ngIf="user.therapistID != null">
+                                <p>Therapist:</p>
+                                <div class="image-container">
+                                    <img class="user-picture"
+                                        src={{findUserById(user.therapistID).profilePicturePath}} />
+                                </div>
+                                <p class="user-name">{{findUserById(user.therapistID).firstName}}
+                                    {{findUserById(user.therapistID).lastName}}</p>
+                            </div>
+                            <div *ngIf="user.description" class="therapist-description">
+                                <p>{{user.description}}</p>
+                            </div>
+                            <button mat-icon-button class="delete-user-button" color="primary" value={{user.id}}
+                                (click)="deleteUser($event)">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </mat-tab>
+        <mat-tab label="Add new user">
+            <mat-stepper class="stepper" orientation="vertical" [linear]="true" #stepper>
+                <mat-step>
+                    <div class="step-form-container">
+                        <ng-template matStepLabel>Account credentials</ng-template>
+                        <div class="field-container">
+                            <mat-icon class="side-icon">account_circle</mat-icon>
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Email</mat-label>
+                                <input matInput [(ngModel)]="newUser_email" placeholder={{emailExample}}
+                                    pattern="{{emailPattern}}" #emailInput="ngModel"
+                                    [class.is-invalid]="emailInput.invalid && emailInput.touched"
+                                    (change)="checkEmail($event)" required>
+                                <mat-error
+                                    *ngIf="emailInput.touched && emailInput.invalid">{{emailErrorMessage_Invalid}}
+                                </mat-error>
+                                <mat-hint *ngIf="emailError"
+                                    class="warning-message">{{emailErrorMessage_Taken}}</mat-hint>
+                            </mat-form-field>
+                        </div>
+                        <br />
+                        <div class="field-container">
+                            <mat-icon class="side-icon">vpn_key</mat-icon>
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Password</mat-label>
+                                <input matInput [(ngModel)]="newUser_password" #passwordInput="ngModel"
+                                    [type]="passwordHide ? 'password' : 'text'" required>
+                                <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+                                    <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="passwordInput.touched && emailInput.invalid">{{passwordErrorMessage}}
+                                </mat-error>
+                                <mat-hint
+                                    *ngIf="passwordInput.touched && passwordInput.value.length<5 && passwordInput.value.length>0"
+                                    class="warning-message">{{passwordHint}}</mat-hint>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <br />
+                    <div>
+                        <button mat-stroked-button color="primary" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+
+                <mat-step>
+                    <div class="step-form-container shorter">
+                        <ng-template matStepLabel>Personal information</ng-template>
+                        <div class="field-container info-field">
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>First Name</mat-label>
+                                <input matInput [(ngModel)]="newUser_firstName" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="field-container info-field">
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput [(ngModel)]="newUser_lastName" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="field-container info-field">
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Birthdate</mat-label>
+                                <input matInput [matDatepicker]="birthDatePicker" (dateChange)="newDate($event)"
+                                    required>
+                                <mat-hint>DD/MM/YYYY</mat-hint>
+                                <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+                                <mat-datepicker #birthDatePicker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="field-container info-field">
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Gender</mat-label>
+                                <mat-select [(ngModel)]="newUser_gender" required>
+                                    <mat-option *ngFor="let gender of gendersList" [value]="gender">
+                                        {{gender}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="field-container info-field">
+                            <mat-form-field class="form-field" appearance="fill">
+                                <mat-label>Phone number</mat-label>
+                                <input matInput [(ngModel)]="newUser_phoneNumber" maxlength="{{phoneNumberLength}}"
+                                    minlength="{{phoneNumberLength}}" (keypress)="checkChar($event)" required>
+                                <mat-icon matSuffix>phone</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div class="field-container info-field">
+                            <mat-form-field appearance="fill" class="form-field">
+                                <mat-label>User type</mat-label>
+                                <mat-select [(ngModel)]="newUser_userType_string"
+                                    (selectionChange)="newUserTypeChange()" required>
+                                    <mat-option *ngFor="let type of userTypeList" [value]="type">
+                                        {{type}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="field-container" *ngIf="showDescriptionField">
+                            <mat-form-field appearance="outline" class="description-input">
+                                <mat-label>Description</mat-label>
+                                <textarea matInput [(ngModel)]="newUser_description">{{newUser_description}}</textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div>
+                        <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+                        <button mat-stroked-button color="primary" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Profile picture</ng-template>
+                    <div (mouseover)="showBadge=true" (mouseleave)="showBadge=false"
+                        class="step-form-container picture-step">
+                        <div class="profile-picture-div">
+                            <button mat-mini-fab *ngIf="showBadge&&userPictureExists" color="primary" class="badge"
+                                (click)="deletePhoto()">
+                                <mat-icon class="badge-icon">cancel</mat-icon>
+                            </button>
+                            <img class="profile-picture" src="{{defaultPicturePath}}" />
+                        </div>
+                        <br />
+                        <button mat-raised-button color="primary" (click)="openUploadDialog()">Upload</button>
+                    </div>
+                    <div>
+                        <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+                        <button mat-stroked-button color="primary" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Done</ng-template>
+                    <br />
+                    <div class="step-form-container-register">
+                        <button mat-raised-button class="register-button" (click)="addNewUser()">Add user</button>
+                        <h3 *ngIf="registrationError" class="warning-message">{{registrationErrorMessage}}</h3>
+                    </div>
+                </mat-step>
+
+            </mat-stepper>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<app-footer-component class="footer1"></app-footer-component>

@@ -1,0 +1,54 @@
+<div class="therapist-container">
+    <h2>Therapist book</h2>
+    <mat-divider class="devider-line"></mat-divider>
+
+    <mat-tab-group mat-align-tabs="center" class="tabs" [selectedIndex]="selected.value"
+        (selectedIndexChange)="tabChange($event)">
+        <mat-tab label="Patients">
+            <mat-accordion class="patient-section">
+                <div *ngFor="let patient of patientList; let i = index" class="patient-list">
+                    <mat-expansion-panel *ngIf="patient" class="patient-list-item">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <div class="image-container">
+                                    <img class="patient-picture" src={{patient.profilePicturePath}} />
+                                </div>
+                                <p class="patient-name">{{patient.firstName}} {{patient.lastName}}</p>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="patient-info">
+                            <div class="patient-detail" >
+                                <p>Age: {{calculateAge(patient.birthDate)}}</p>
+                                <p>Phone number: {{patient.phoneNumber}}</p>
+                                <p>Gender: {{patient.gender}}</p>
+                            </div>
+                            <mat-form-field appearance="outline" class="patient-note-input">
+                                <mat-label>Note</mat-label>
+                                <textarea id="{{i}}" matInput [(ngModel)]="notes[i]" (change)="noteUpdate($event)">{{patient.note}}</textarea>
+                                <!-- [(ngModel)]="patient.note" -->
+                            </mat-form-field>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </mat-tab>
+        <mat-tab label="Schedule">
+            <div class="schedule-container">
+                <div class="upcoming">
+                    <app-schedule-card [date]="upcomingScheduleDate" [therapistId]="therapistId" [upcomingLabel]="true" class="upcoming">
+                    </app-schedule-card>
+                </div>
+                <div class="calendar-container">
+                    <mat-card class="calendar-card">
+                        <mat-calendar class="calendar" [(selected)]="selectedDate" [dateFilter]="filterCalendar"
+                            [minDate]="upcomingScheduleDate"></mat-calendar>
+                        <mat-divider [vertical]="true"></mat-divider>
+                        <app-schedule-card [date]="selectedDate" [therapistId]="therapistId" class="schedule-card-div">
+                        </app-schedule-card>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<app-footer-component class="footer1"></app-footer-component>

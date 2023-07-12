@@ -1,0 +1,26 @@
+<mat-card class="card-container">
+    <mat-card-title class="help-title">Seek help</mat-card-title>
+    <mat-divider class="devider-line"></mat-divider>
+    <p>{{cardText}}</p>
+    <mat-divider class="devider-line"></mat-divider>
+    <div class="login-form-container">
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput [formControl]="guestName" (input)="checkGuestName()" required>
+            <mat-error *ngIf="guestName.errors">
+                {{guestNameErrorText}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Phone number</mat-label>
+            <input matInput [formControl]="guestPhoneNumber" maxlength="{{phoneNumberLength}}"
+                minlength="{{phoneNumberLength}}" (keypress)="checkChar($event)" (input)="checkPhoneNumber()" required>
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="guestPhoneNumber.errors">
+                {{guestPhoneNumberErrorText}}
+            </mat-error>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button class="submit-button" color="primary" (click)="submit()">Submit</button>
+    </div>
+</mat-card>

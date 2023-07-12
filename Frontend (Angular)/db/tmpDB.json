@@ -1,0 +1,447 @@
+{
+  "sidenav_items_list": [
+    {
+      "id": 1,
+      "title": "Home",
+      "route": "",
+      "permissions": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Register",
+      "route": "register",
+      "permissions": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Operator Dashboard",
+      "route": "operator-dashboard",
+      "permissions": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Therapist page",
+      "route": "therapist",
+      "permissions": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Patient page",
+      "route": "patient",
+      "permissions": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Admin page",
+      "route": "admin-page",
+      "permissions": [
+        0
+      ]
+    }
+  ],
+  "userQuotes": [
+    {
+      "userName": "Neki lik tamo",
+      "quoteText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra interdum magna, id dapibus magna dignissim et. Curabitur quis aliquet lorem, eget venenatis felis. Sed sed libero metus. Nullam sed lorem vel sem lobortis vestibulum. Praesent id neque eget est molestie imperdiet.",
+      "profilePicture": "../assets/Icons/account_icon.png"
+    },
+    {
+      "userName": "Neka likusa tamo",
+      "quoteText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra interdum magna, id dapibus magna dignissim et. Curabitur quis aliquet lorem, eget venenatis felis. Sed sed libero metus. Nullam sed lorem vel sem lobortis vestibulum. Praesent id neque eget est molestie imperdiet.",
+      "profilePicture": "../assets/UserData/user1.png"
+    }
+  ],
+  "helpCalls": [
+    {
+      "id": 1,
+      "guestName": "Lik 1",
+      "guestPhoneNumber": "0649807810",
+      "processed": true
+    },
+    {
+      "id": 2,
+      "guestName": "Lik 2",
+      "guestPhoneNumber": "5555555555",
+      "processed": true
+    },
+    {
+      "id": 3,
+      "guestName": "Lik 3",
+      "guestPhoneNumber": "0948513545",
+      "processed": true
+    },
+    {
+      "id": 4,
+      "guestName": "sdlkjfnos",
+      "guestPhoneNumber": "4444444444",
+      "processed": false
+    },
+    {
+      "id": 5,
+      "guestName": "kjhgvol",
+      "guestPhoneNumber": "4343545646",
+      "processed": true
+    },
+    {
+      "id": 6,
+      "guestName": "mitar miric",
+      "guestPhoneNumber": "2132131231",
+      "processed": true
+    },
+    {
+      "id": 7,
+      "guestName": "ssssssssssssssss",
+      "guestPhoneNumber": "2222222222",
+      "processed": true
+    },
+    {
+      "id": 8,
+      "guestName": "dddddd",
+      "guestPhoneNumber": "2333333333",
+      "processed": true
+    },
+    {
+      "id": 9,
+      "guestName": "Hocudaseroknem123",
+      "guestPhoneNumber": "123321",
+      "processed": true
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@admin.com",
+      "firstName": "Admin",
+      "lastName": "",
+      "birthDate": {
+        "year": 2012,
+        "month": 6,
+        "day": 28
+      },
+      "gender": "Male",
+      "phoneNumber": "0948513545",
+      "password": "admin",
+      "JWT": "",
+      "userType": 0,
+      "profilePicturePath": "/assets/Icons/account_icon.png",
+      "therapistID": null,
+      "note": "",
+      "description": null
+    },
+    {
+      "id": 2,
+      "email": "tarmi@ricmi.rs",
+      "firstName": "Tarmi",
+      "lastName": "Ricmi",
+      "birthDate": {
+        "year": 2012,
+        "month": 6,
+        "day": 28
+      },
+      "gender": "Male",
+      "phoneNumber": "0948513545",
+      "password": "123",
+      "JWT": "",
+      "userType": 3,
+      "profilePicturePath": "/assets/UserData/user1.png",
+      "therapistID": null,
+      "note": "",
+      "description": ""
+    },
+    {
+      "id": 3,
+      "email": "nesto@nesto.rs",
+      "firstName": "Mandrila",
+      "lastName": "Antic",
+      "birthDate": {
+        "year": 2012,
+        "month": 6,
+        "day": 28
+      },
+      "gender": "Male",
+      "phoneNumber": "0948513545",
+      "password": "123",
+      "JWT": "",
+      "userType": 2,
+      "profilePicturePath": "/assets/UserData/user1.png",
+      "therapistID": 6,
+      "note": "bla blaq bla",
+      "description": ""
+    },
+    {
+      "id": 4,
+      "email": "a",
+      "firstName": "Mandrila",
+      "lastName": "Antic",
+      "birthDate": {
+        "year": 1389,
+        "month": 6,
+        "day": 28
+      },
+      "gender": "Male",
+      "phoneNumber": "0948513545",
+      "password": "a",
+      "JWT": "",
+      "userType": 2,
+      "profilePicturePath": "/assets/UserData/user1.png",
+      "therapistID": 6,
+      "note": "",
+      "description": ""
+    },
+    {
+      "id": 5,
+      "email": "andrija@gmail.com",
+      "firstName": "Andrija",
+      "lastName": "Djordjevic",
+      "birthDate": {
+        "year": 1997,
+        "month": 10,
+        "day": 2
+      },
+      "gender": "Male",
+      "phoneNumber": "0948513545",
+      "password": "ccc",
+      "JWT": "",
+      "userType": 2,
+      "profilePicturePath": "/assets/UserData/user1.png",
+      "therapistID": 6,
+      "note": "",
+      "description": ""
+    },
+    {
+      "id": 6,
+      "email": "rajko@r.com",
+      "firstName": "Rajko",
+      "lastName": "Specko",
+      "birthDate": {
+        "year": 2022,
+        "month": 10,
+        "day": 13
+      },
+      "gender": "Female",
+      "phoneNumber": "2132131241",
+      "JWT": "",
+      "userType": 1,
+      "profilePicturePath": "/assets/UserData/user1.png",
+      "password": "budala",
+      "therapistID": null,
+      "note": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique velit vitae magna pretium, vitae euismod libero maximus. Fusce sodales egestas erat. Cras hendrerit venenatis justo, vel ornare justo rhoncus vel. Quisque mauris metus, placerat ac eros at, facilisis viverra orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempor ullamcorper ante vitae congue. In aliquam eleifend finibus. In hac habitasse platea dictumst. Nunc vulputate, eros ut viverra eleifend, dolor mi blandit elit, molestie semper ipsum metus at lorem. Nunc faucibus tortor sed nisl aliquet imperdiet. Nullam bibendum eget turpis id rhoncus. Vivamus suscipit vel urna id vulputate. Aliquam sodales vestibulum augue vestibulum mollis."
+    },
+    {
+      "id": 7,
+      "email": "majko@m.com",
+      "firstName": "sad",
+      "lastName": "weqq",
+      "birthDate": {
+        "year": 2022,
+        "month": 10,
+        "day": 19
+      },
+      "gender": "Male",
+      "phoneNumber": "3142342342",
+      "JWT": "",
+      "userType": 2,
+      "profilePicturePath": "/assets/Icons/account_icon.png",
+      "password": "sadsad",
+      "therapistID": 6,
+      "note": "nesto nesto nesto nesto nesto nesto nesto nesto nesto nesto nesto ",
+      "description": ""
+    },
+    {
+      "id": 8,
+      "email": "rajko@r.com",
+      "firstName": "Budaletina",
+      "lastName": "Kompletna",
+      "birthDate": {
+        "year": 2022,
+        "month": 10,
+        "day": 13
+      },
+      "gender": "Male",
+      "phoneNumber": "2132131241",
+      "JWT": "",
+      "userType": 1,
+      "profilePicturePath": "/assets/UserData/user1.png",
+      "password": "budala",
+      "therapistID": null,
+      "note": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique velit vitae magna pretium, vitae euismod libero maximus. Fusce sodales egestas erat. Cras hendrerit venenatis justo, vel ornare justo rhoncus vel. Quisque mauris metus, placerat ac eros at, facilisis viverra orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempor ullamcorper ante vitae congue. In aliquam eleifend finibus. In hac habitasse platea dictumst. Nunc vulputate, eros ut viverra eleifend, dolor mi blandit elit, molestie semper ipsum metus at lorem. Nunc faucibus tortor sed nisl aliquet imperdiet. Nullam bibendum eget turpis id rhoncus. Vivamus suscipit vel urna id vulputate. Aliquam sodales vestibulum augue vestibulum mollis."
+    },
+    {
+      "id": 9,
+      "email": "rajko@r.com",
+      "firstName": "Cisti",
+      "lastName": "Slepac",
+      "birthDate": {
+        "year": 2022,
+        "month": 10,
+        "day": 13
+      },
+      "gender": "Female",
+      "phoneNumber": "2132131241",
+      "JWT": "",
+      "userType": 1,
+      "profilePicturePath": "/assets/UserData/user1.png",
+      "password": "budala",
+      "therapistID": null,
+      "note": "",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique velit vitae magna pretium, vitae euismod libero maximus. Fusce sodales egestas erat. Cras hendrerit venenatis justo, vel ornare justo rhoncus vel. Quisque mauris metus, placerat ac eros at, facilisis viverra orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempor ullamcorper ante vitae congue. In aliquam eleifend finibus. In hac habitasse platea dictumst. Nunc vulputate, eros ut viverra eleifend, dolor mi blandit elit, molestie semper ipsum metus at lorem. Nunc faucibus tortor sed nisl aliquet imperdiet. Nullam bibendum eget turpis id rhoncus. Vivamus suscipit vel urna id vulputate. Aliquam sodales vestibulum augue vestibulum mollis."
+    },
+    {
+      "id": 10,
+      "email": "ukiwashere@nasa.com",
+      "firstName": "Cigan",
+      "lastName": "Mali",
+      "birthDate": {
+        "year": 2005,
+        "month": 7,
+        "day": 11
+      },
+      "gender": "Male",
+      "phoneNumber": "1238765489",
+      "password": "ciganmala",
+      "JWT": "",
+      "userType": 2,
+      "profilePicturePath": "/assets/Icons/account_icon.png",
+      "therapistID": 6,
+      "note": "",
+      "description": ""
+    }
+  ],
+  "schedule": [
+    {
+      "id": 1,
+      "therapistID": 6,
+      "date": "17.1.2023.",
+      "appointmentNumber": 0,
+      "patientId": 3
+    },
+    {
+      "id": 2,
+      "therapistID": 6,
+      "date": "17.1.2023.",
+      "appointmentNumber": 1,
+      "patientId": 4
+    },
+    {
+      "id": 3,
+      "therapistID": 6,
+      "date": "17.1.2023.",
+      "appointmentNumber": 2,
+      "patientId": 4
+    },
+    {
+      "id": 4,
+      "therapistID": 6,
+      "date": "17.1.2023.",
+      "appointmentNumber": 3,
+      "patientId": 5
+    },
+    {
+      "id": 5,
+      "therapistID": 6,
+      "date": "17.1.2023.",
+      "appointmentNumber": 4,
+      "patientId": 5
+    },
+    {
+      "id": 6,
+      "therapistID": 6,
+      "date": "17.1.2023.",
+      "appointmentNumber": 5,
+      "patientId": 5
+    },
+    {
+      "id": 7,
+      "therapistID": 6,
+      "date": "17.1.2023.",
+      "appointmentNumber": 6,
+      "patientId": 5
+    },
+    {
+      "id": 8,
+      "therapistID": 6,
+      "date": "18.1.2023.",
+      "appointmentNumber": 4,
+      "patientId": 7
+    },
+    {
+      "id": 9,
+      "therapistID": 6,
+      "date": "18.1.2023.",
+      "appointmentNumber": 5,
+      "patientId": 4
+    },
+    {
+      "id": 10,
+      "therapistID": 6,
+      "date": "19.1.2023.",
+      "appointmentNumber": 0,
+      "patientId": 3
+    },
+    {
+      "id": 11,
+      "therapistID": 6,
+      "date": "19.1.2023.",
+      "appointmentNumber": 2,
+      "patientId": 4
+    },
+    {
+      "id": 12,
+      "therapistID": 6,
+      "date": "18.1.2023.",
+      "appointmentNumber": 2,
+      "patientId": 5
+    },
+    {
+      "id": 13,
+      "therapistID": 6,
+      "date": "18.1.2023.",
+      "appointmentNumber": 3,
+      "patientId": 10
+    },
+    {
+      "id": 14,
+      "therapistID": 8,
+      "date": "25.1.2023.",
+      "appointmentNumber": 3,
+      "patientId": 11
+    },
+    {
+      "id": 15,
+      "therapistID": 8,
+      "date": "25.1.2023.",
+      "appointmentNumber": 1,
+      "patientId": 11
+    },
+    {
+      "id": 16,
+      "therapistID": 8,
+      "date": "25.1.2023.",
+      "appointmentNumber": 2,
+      "patientId": 11
+    }
+  ]
+}

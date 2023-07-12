@@ -1,0 +1,40 @@
+.card-container{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #446ccf;
+    background-color: #e0e1e2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container mat-divider{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.help-title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.devider-line{
+    margin-bottom: 20px;
+}
+
+.login-form-container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field{
+    margin-bottom: 5px;
+}
+
+.submit-button{
+    background-color: rgb(2, 109, 2);
+    width: 50%;
+    align-self: flex-end;
+}

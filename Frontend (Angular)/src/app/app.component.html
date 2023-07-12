@@ -1,0 +1,32 @@
+<mat-toolbar class="main-toolbar" color="primary" [class.mat-elevation-z8]="true">
+  <button mat-icon-button (click)="snav.toggle()">
+    <mat-icon class="menu-icon"
+      matTooltip={{menuButtonTooltipText}}
+      [matTooltipShowDelay]="showDelay.value">menu</mat-icon>
+  </button>
+  <h1 class="app-title" 
+    routerLink="" 
+    matTooltip="Home page" 
+    [matTooltipShowDelay]="showDelay.value">{{toolbarCenterText}}</h1>
+  <app-account-icon (emitter)="updateCardComponent($event)" [foreignEvent]="cardTriggeredEvent"></app-account-icon>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #snav mode="over" class="sidenav">
+
+    <mat-selection-list [multiple]="false" >
+      <mat-list-option class="sidenav-list-option" *ngFor="let item of sidenavItems" routerLink="{{item?.route}}">{{item?.title}}
+        <mat-divider></mat-divider>
+      </mat-list-option>
+    </mat-selection-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content-container">
+    <router-outlet (activate)="subscribeToChildEmmiter($event)" (deactivate)="unsubscribe()"></router-outlet>
+    <app-login-card *ngIf="showCard_LogIn" (loginCardEmitter)="cardTriggeredHide()"></app-login-card>
+    <app-account-info-card *ngIf="showCard_AccountInfo" (loginCardEmitter)="cardTriggeredHide()"></app-account-info-card>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

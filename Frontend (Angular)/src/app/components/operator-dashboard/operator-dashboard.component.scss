@@ -1,0 +1,58 @@
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-container h2{
+    margin-top: 5%;
+}
+
+.devider-line{
+    width: 70%;
+    margin-bottom: 2%;
+}
+
+.request-list{
+    width: 70%;
+}
+
+.request-item{
+    margin-bottom: 20px;
+    margin-top: 20x;
+}
+
+.request-item-finished{
+    background-color: green;
+}
+
+.request-title{
+    font-size: larger;
+    font-weight: 400;
+    padding-top: 10px;
+}
+
+.request-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.request-phone-label{
+    padding-top: 15px;
+}
+
+.request-done-button{
+    margin-top: 5px;
+}
+
+.footer1{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.footer2{
+    position: relative;
+}

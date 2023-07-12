@@ -1,0 +1,14 @@
+<mat-card class="schedule-card">
+    <div class="header">
+        <h3>{{headerText()}}</h3>
+    </div>
+    <mat-divider class="devider-line"></mat-divider>
+    <div class="schedule-list">
+        <div *ngFor="let label of appointmentsLabel; let i = index" class="appointment-list">
+            <p>{{label}}</p>
+            <p *ngIf="appointments[i][0] && !appointments[i][1]" class = "occupied">unavailable</p>
+            <button *ngIf="!appointments[i][0] && !appointments[i][1]" mat-raised-button color="primary" id="{{i}}" (click)="makeAnAppointment(i)">Free</button>            
+            <button *ngIf="appointments[i][0] && appointments[i][1]" mat-raised-button color="primary" id="{{i}}" (click)="cancelAppointment(i)">Scheduled</button>   
+        </div>
+    </div>
+</mat-card>
